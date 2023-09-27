@@ -28,7 +28,7 @@ logging:
         mapper: debug
         service: info
         controller: info
-
+# 自定义配置文件属性
 sky:
   jwt:
     # 设置jwt签名加密时使用的秘钥
@@ -37,3 +37,8 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+  minio:
+    endpoint: ${sky.minio.endpoint}
+    access-key-id: ${sky.minio.access-key-id}
+    access-key-secret: ${sky.minio.access-key-secret}
+    bucket-name: ${sky.minio.bucket-name}
