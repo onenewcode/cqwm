@@ -11,3 +11,11 @@ sky:
     access-key-id: minioadmin #账户
     access-key-secret: minioadmin # 密码
     bucket-name: sky-take-out
+  redis:
+    host: 192.168.218.131
+    port: 6379
+    password: ""
+    database: 10
+  wechat:
+    appid: wxffb3637a228223b8
+    secret: 84311df9199ecacdf4f12d27b6b9522d

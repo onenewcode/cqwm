@@ -41,5 +41,14 @@
         </set>
         where id = #{id}
     </update>
+    <select id="list" resultType="Dish">
+        select * from dish d
+                <where>
+                    <if test="categoryId != null">
+                         d.category_id = #{categoryId}
+                    </if>
+                </where>
+                 order by sort asc,create_time desc
+    </select>
 </mapper>
 

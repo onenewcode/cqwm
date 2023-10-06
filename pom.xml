@@ -24,7 +24,7 @@
         <commons.lang>2.6</commons.lang>
         <druid>1.2.1</druid>
         <pagehelper>1.3.0</pagehelper>
-
+        <httpclient>5.3-alpha1</httpclient>
         <knife4j>3.0.2</knife4j>
         <aspectj>1.9.4</aspectj>
         <jjwt>0.9.1</jjwt>
@@ -35,10 +35,16 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>${httpclient}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.minio</groupId>
                 <artifactId>minio</artifactId>
                 <version>${minio}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
