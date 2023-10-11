@@ -7,13 +7,12 @@
         insert into dish (name, category_id, price, image, description, create_time, update_time, create_user,update_user, status)
         values (#{name}, #{categoryId}, #{price}, #{image}, #{description}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser}, #{status})
     </insert>
-
+<!--    as 起别名-->
+<!--    左外连接：left outer join （left join） 左外连接：就是把左边表的数据全部取出来，而右边表的数据有相等的，显示出来，如果没有，显示NULL-->
     <select id="pageQuery" resultType="com.sky.vo.DishVO">
--- as 起别名
---左外连接：left outer join （left join） 左外连接：就是把左边表的数据全部取出来，而右边表的数据有相等的，显示出来，如果没有，显示NULL
+
         select d.* , c.name as categoryName from dish d left outer join category c on d.category_id = c.id
         <where>
---
             <if test="name != null">
                 and d.name like concat('%',#{name},'%')
             </if>
@@ -28,6 +27,7 @@
     </select>
 
     <update id="update">
+-- 使用set标签可以将动态的配置 SET 关键字
         update dish
         <set>
             <if test="name != null">name = #{name},</if>
@@ -50,5 +50,6 @@
                 </where>
                  order by sort asc,create_time desc
     </select>
+
 </mapper>
 
