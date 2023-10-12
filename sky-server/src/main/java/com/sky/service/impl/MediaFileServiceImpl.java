@@ -9,6 +9,7 @@ import io.minio.*;
 
 import io.minio.messages.DeleteError;
 import io.minio.messages.DeleteObject;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -32,12 +33,13 @@ import java.util.stream.Stream;
 
 @Slf4j
 @Service
+@Data
 public class MediaFileServiceImpl implements MediaFileService {
 
 
     @Autowired
     MinioClient minioClient;
-    @Value("${sky.minio.bucketName}")
+    @Value("${sky.minio.bucket-name}")
     private String bucketName;
     @Value("${sky.minio.endpoint}")
     private String endpoint;
