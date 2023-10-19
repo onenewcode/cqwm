@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
                     .openid(openid)
                     .createTime(LocalDateTime.now())
                     .build();
-            userMapper.insert(user);//后绪步骤实现
+            userMapper.insert(user);
         }
 
         //返回这个用户对象
