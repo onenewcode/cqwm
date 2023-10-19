@@ -362,7 +362,7 @@ public class OrderServiceImpl implements OrderService {
     /**
      * 再来一单
      *
-     * @param id
+     * @param id 订单id
      */
     public void repetition(Long id) {
         // 查询当前用户id
@@ -372,7 +372,7 @@ public class OrderServiceImpl implements OrderService {
         List<OrderDetail> orderDetailList = orderDetailMapper.getByOrderId(id);
 
         // 将订单详情对象转换为购物车对象
-        List<ShoppingCart> shoppingCartList = orderDetailList.stream().map(x -> {
+        List<ShoppingCart> shoppingCartList = orderDetailList.stream().map(x -> {//进行流处理提高休旅
             ShoppingCart shoppingCart = new ShoppingCart();
 
             // 将原订单详情里面的菜品信息重新复制到购物车对象中
@@ -381,7 +381,7 @@ public class OrderServiceImpl implements OrderService {
             shoppingCart.setCreateTime(LocalDateTime.now());
 
             return shoppingCart;
-        }).collect(Collectors.toList());
+        }).collect(Collectors.toList());//收集闭包返回的值到list集合
 
         // 将购物车对象批量添加到数据库
         shoppingCartMapper.insertBatch(shoppingCartList);
@@ -390,8 +390,8 @@ public class OrderServiceImpl implements OrderService {
     /**
      * 订单搜索
      *
-     * @param ordersPageQueryDTO
-     * @return
+     * @param ordersPageQueryDTO 查询信息
+     * @return 总页数，订单信息
      */
     public PageResult conditionSearch(OrdersPageQueryDTO ordersPageQueryDTO) {
         PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
@@ -609,4 +609,5 @@ public class OrderServiceImpl implements OrderService {
         //通过websocket向客户端浏览器推送消息
         webSocketServer.sendToAllClient(JSON.toJSONString(map));
     }
+
 }
