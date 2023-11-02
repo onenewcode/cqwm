@@ -12,7 +12,7 @@
         order by create_time desc
     </select>
 
-    <update id="update" parameterType="Employee">
+    <update id="update" parameterType="com.sky.entity.Employee">
         update employee
         <set>
             <if test="name != null">name = #{name},</if>

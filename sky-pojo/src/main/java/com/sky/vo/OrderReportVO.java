@@ -11,6 +11,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+//  一个对象序列化的接口，一个类只有实现了Serializable接口，它的对象才是可序列化的。
 public class OrderReportVO implements Serializable {
 
     //日期，以逗号分隔，例如：2022-10-01,2022-10-02,2022-10-03

@@ -47,4 +47,12 @@ public interface ReportService {
      * @param response
      */
     void exportBusinessData(HttpServletResponse response);
+
+    /**
+     * 根据时间区间统计营业额
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    TurnoverReportVO getTurnover(LocalDate beginTime, LocalDate endTime);
 }
